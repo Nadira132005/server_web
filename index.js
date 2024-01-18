@@ -3,10 +3,11 @@ const path = require("path");
 
 const app = express();
 const port = 80;
+app.use(express.static("public"));
 
 // sendFile will go here
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(port);
