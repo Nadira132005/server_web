@@ -1,14 +1,13 @@
-// Importing the http module
-const http = require("http");
+const express = require("express");
+const path = require("path");
 
-// Creating server
-const server = http.createServer((req, res) => {
-  // Sending the response
-  res.write("This is the response from Nadira's NEW server!!!");
-  res.end();
+const app = express();
+const port = 80;
+
+// sendFile will go here
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/index.html"));
 });
 
-// Server listening to port 3000
-server.listen(80, () => {
-  console.log("Server is Running");
-});
+app.listen(port);
+console.log("Server started at http://localhost:" + port);
